@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Vendor.DataEnities;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Vendor.DataEntities;
+using Vendor.DataEnities.Interface;
+using Vendor.DataEnities.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,12 +17,15 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vendor API", Version = "v1" });
 });
-
 builder.Services.AddDbContext<VendorContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 27)));
 });
+
+builder.Services.AddScoped<IVendorRepository, VendorRepository>();
+//builder.Services.AddScoped<>(IProductRepo,ProductRepo);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
