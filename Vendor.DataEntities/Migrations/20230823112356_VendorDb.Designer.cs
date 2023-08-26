@@ -11,8 +11,8 @@ using Vendor.DataEntities;
 namespace Vendor.DataEntities.Migrations
 {
     [DbContext(typeof(VendorContext))]
-    [Migration("20230823040121_check")]
-    partial class check
+    [Migration("20230823112356_VendorDb")]
+    partial class VendorDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

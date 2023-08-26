@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Vendor.DataEntities.Migrations
 {
     /// <inheritdoc />
-    public partial class check : Migration
+    public partial class VendorDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
