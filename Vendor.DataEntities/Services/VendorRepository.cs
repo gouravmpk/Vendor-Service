@@ -38,6 +38,44 @@ namespace Vendor.DataEnities.Services
             return result;
         }
 
-      
+        public async Task<Vendors> GetVendors(int id)
+        {
+            var result = await _vendorContext.Vendors.AsNoTracking()
+                  .Where(x => x.VendorID == id)
+                  .Select(x => new Vendors
+                  {
+                      VendorID = x.VendorID,
+                      VendorLocation = x.VendorLocation,
+                      VendorName = x.VendorName,
+                      VerificationStatus = x.VerificationStatus,
+                      ContactInfo = x.ContactInfo,
+                      VendorType = x.VendorType,
+                      Notifications = x.Notifications,
+                      Products = x.Products
+                  }).FirstOrDefaultAsync(); 
+             
+            return result;
+        }
+
+        public async Task<Vendors> GetVendorByName(string Name) {
+            var result = await _vendorContext.Vendors.AsNoTracking()
+                    .Where(x => x.VendorName == Name)
+                    .Select(x => new Vendors
+                    {
+                        VendorID = x.VendorID,
+                        VendorLocation = x.VendorLocation,
+                        VendorName = x.VendorName,
+                        VerificationStatus = x.VerificationStatus,
+                        ContactInfo = x.ContactInfo,
+                        Notifications = x.Notifications,
+                        Products = x.Products
+                    }).FirstOrDefaultAsync();
+            return result;
+        }
+
+        public Task<List<Vendors>> GetAllVendors()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

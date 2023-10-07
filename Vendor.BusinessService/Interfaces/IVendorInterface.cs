@@ -9,6 +9,9 @@ namespace Vendor.BusinessService.Interfaces
 {
     public interface IVendorInterface
     {
-        Task<List<VendorsDTO>> GetVendors();
+        Task<List<VendorsDTO>> GetAllVendors();
+        Task<VendorsDTO> GetVendors(int id);
+        Task<VendorsDTO> GetVendorByName(string name);
+
     }
 }

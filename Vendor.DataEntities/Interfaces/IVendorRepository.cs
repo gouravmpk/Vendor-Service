@@ -10,6 +10,9 @@ namespace Vendor.DataEnities.Interface
     public interface IVendorRepository
     {
         
-        Task<List<Vendors>> GetAll();
+        Task<List<Vendors>> GetAllVendors();
+        Task<Vendors> GetVendors(int id);
+        Task<Vendors> GetVendorByName(string name);
+
     }
 }

@@ -5,7 +5,10 @@ using Vendor.DataEnities;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Vendor.DataEntities;
 using Vendor.DataEnities.Interface;
-using Vendor.DataEnities.Services;
+using Vendor.DataEnities.Services;         
+using AutoMapper;
+using Vendor.BusinessEntities.Models;
+using Vendor.DataEntities.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,10 @@ builder.Services.AddDbContext<VendorContext>(options =>
     options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 27)));
 });
 
+builder.Services.AddAutoMapper(config =>
+{
+    config.CreateMap<Vendors, VendorsDTO>();
+});
 builder.Services.AddScoped<IVendorRepository, VendorRepository>();
 //builder.Services.AddScoped<>(IProductRepo,ProductRepo);
 
