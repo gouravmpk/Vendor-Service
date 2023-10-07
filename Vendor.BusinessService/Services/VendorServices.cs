@@ -12,7 +12,7 @@ using Vendor.DataEnities.Services;
 
 namespace Vendor.BusinessService.Services
 {
-    public class VendorServices : IVendorInterface
+    public class VendorServices : IVendorService
     {
         private readonly IVendorRepository _vendorRepo;
         private readonly IMapper _mapper; // Add IMapper dependency

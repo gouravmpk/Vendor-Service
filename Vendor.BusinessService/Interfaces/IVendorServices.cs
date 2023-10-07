@@ -7,7 +7,7 @@ using Vendor.BusinessEntities.Models;
 
 namespace Vendor.BusinessService.Interfaces
 {
-    public interface IVendorInterface
+    public interface IVendorService
     {
         Task<List<VendorsDTO>> GetAllVendors();
         Task<VendorsDTO> GetVendors(int id);

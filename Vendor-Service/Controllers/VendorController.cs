@@ -8,10 +8,10 @@ namespace Vendor.Api.Controllers
 {
     public class VendorController : Controller
     {
-        private readonly IVendorInterface _vendorInterface;
+        private readonly IVendorService _vendorService;
 
-        public VendorController(IVendorInterface vendorInterface) {
-            _vendorInterface = vendorInterface;
+        public VendorController(IVendorService vendorInterface) {
+            _vendorService = vendorInterface;
         }
         // GET: VendorController
        
@@ -25,20 +25,20 @@ namespace Vendor.Api.Controllers
         public async Task<ActionResult> GetAllVendor()
         {
 
-            var vendorResult = await _vendorInterface.GetAllVendors();
+            var vendorResult = await _vendorService.GetAllVendors();
             return Ok(vendorResult);
         }
 
         [HttpGet]
         public  async Task<ActionResult> GetVendor(int vendorId)
         {
-            var vendorResult = await _vendorInterface.GetVendors(vendorId);
+            var vendorResult = await _vendorService.GetVendors(vendorId);
             return Ok(vendorResult);
         }
 
         [HttpGet]
         public async Task<ActionResult> GetVendorByName(string Name) {
-            var vendorResult = await _vendorInterface.GetVendorByName(Name);
+            var vendorResult = await _vendorService.GetVendorByName(Name);
             return Ok(vendorResult);
         }
         

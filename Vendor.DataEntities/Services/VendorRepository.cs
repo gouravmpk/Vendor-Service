@@ -20,24 +20,6 @@ namespace Vendor.DataEnities.Services
         }
 
      
-        public async Task<List<Vendors>> GetAll()
-        {
-            var result = await _vendorContext.Vendors.AsNoTracking()
-                .Select(x => new Vendors
-                {
-                    VendorID = x.VendorID,
-                    VendorLocation = x.VendorLocation,
-                    VendorName = x.VendorName,
-                    VerificationStatus = x.VerificationStatus,
-                    ContactInfo = x.ContactInfo,
-                    VendorType = x.VendorType,
-                    Notifications = x.Notifications,
-                    Products = x.Products
-                }).ToListAsync();
-
-            return result;
-        }
-
         public async Task<Vendors> GetVendors(int id)
         {
             var result = await _vendorContext.Vendors.AsNoTracking()
@@ -73,9 +55,23 @@ namespace Vendor.DataEnities.Services
             return result;
         }
 
-        public Task<List<Vendors>> GetAllVendors()
+        public async Task<List<Vendors>> GetAllVendors()
         {
-            throw new NotImplementedException();
+
+            var result = await _vendorContext.Vendors.AsNoTracking()
+                .Select(x => new Vendors
+                {
+                    VendorID = x.VendorID,
+                    VendorLocation = x.VendorLocation,
+                    VendorName = x.VendorName,
+                    VerificationStatus = x.VerificationStatus,
+                    ContactInfo = x.ContactInfo,
+                    VendorType = x.VendorType,
+                    Notifications = x.Notifications,
+                    Products = x.Products
+                }).ToListAsync();
+
+            return result;
         }
     }
 }

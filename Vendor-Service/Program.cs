@@ -9,6 +9,8 @@ using Vendor.DataEnities.Services;
 using AutoMapper;
 using Vendor.BusinessEntities.Models;
 using Vendor.DataEntities.Models;
+using Vendor.BusinessService.Interfaces;
+using Vendor.BusinessService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +33,7 @@ builder.Services.AddAutoMapper(config =>
     config.CreateMap<Vendors, VendorsDTO>();
 });
 builder.Services.AddScoped<IVendorRepository, VendorRepository>();
+builder.Services.AddScoped<IVendorService, VendorServices>();
 //builder.Services.AddScoped<>(IProductRepo,ProductRepo);
 
 var app = builder.Build();
