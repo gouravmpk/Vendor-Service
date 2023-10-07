@@ -20,8 +20,9 @@ namespace Vendor.DataEnities.Services
         }
 
      
-        public async Task<Vendors> GetVendors(int id)
+        public async Task<Vendors> GetVendorById(int id)
         {
+
             var result = await _vendorContext.Vendors.AsNoTracking()
                   .Where(x => x.VendorID == id)
                   .Select(x => new Vendors
@@ -73,5 +74,8 @@ namespace Vendor.DataEnities.Services
 
             return result;
         }
+
+
+
     }
 }

@@ -11,7 +11,7 @@ namespace Vendor.DataEnities.Interface
     {
         
         Task<List<Vendors>> GetAllVendors();
-        Task<Vendors> GetVendors(int id);
+        Task<Vendors> GetVendorById(int id);
         Task<Vendors> GetVendorByName(string name);
 
     }
