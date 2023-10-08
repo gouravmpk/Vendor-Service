@@ -39,7 +39,7 @@ namespace Vendor.BusinessService.Services
 
         public async Task<VendorsDTO> GetVendors(int id)
         {
-            var vendor = await _vendorRepo.GetVendors(id);
+            var vendor = await _vendorRepo.GetVendorById(id);
             var vendorDTO = _mapper.Map<VendorsDTO>(vendor);
             return vendorDTO;
         }
