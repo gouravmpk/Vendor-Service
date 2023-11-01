@@ -43,5 +43,10 @@ namespace Vendor.BusinessService.Services
             var vendorDTO = _mapper.Map<VendorsDTO>(vendor);
             return vendorDTO;
         }
+
+        public Task<VendorsDTO> VendorRegistration()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

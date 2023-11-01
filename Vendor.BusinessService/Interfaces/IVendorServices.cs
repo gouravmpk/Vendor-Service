@@ -12,6 +12,7 @@ namespace Vendor.BusinessService.Interfaces
         Task<List<VendorsDTO>> GetAllVendors();
         Task<VendorsDTO> GetVendors(int id);
         Task<VendorsDTO> GetVendorByName(string name);
+        Task<VendorsDTO> VendorRegistration();
 
     }
 }

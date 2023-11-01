@@ -1,18 +1,21 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Vendor.DataEntities.Models
 {
-    public class Vendors
+    public class Vendors :IdentityUser
     {
         [Key]
         public int VendorID { get; set; }
         public string? VendorName { get; set; }
         public string? ContactInfo { get; set; }
         public bool VerificationStatus { get; set; }
-        public string? VendorLocation { get; set; } 
+        public string? VendorLocation { get; set; }
         public string? VendorType { get; set; }
+        public string? Password { get; set; }
+        public string? Email { get; set; }
         // Other properties specific to vendors
 
         public virtual ICollection<VendorProductsTable> Products { get; set; }
