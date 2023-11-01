@@ -47,7 +47,9 @@ namespace Vendor.DataEnities.Services
         }
 
         public async Task<Vendors> GetVendorByName(string Name) {
-            var result = await _vendorContext.Vendors.AsNoTracking()
+            try
+            {
+                var result = await _vendorContext.Vendors.AsNoTracking()
                     .Where(x => x.VendorName == Name)
                     .Select(x => new Vendors
                     {
@@ -59,7 +61,13 @@ namespace Vendor.DataEnities.Services
                         Notifications = x.Notifications,
                         Products = x.Products
                     }).FirstOrDefaultAsync();
-            return result;
+                return result;
+                
+            }
+            catch (Exception ex){
+                _logger.LogError($"Exception: {ex}");
+                return null;
+            }
         }
 
         public async Task<List<Vendors>> GetAllVendors()

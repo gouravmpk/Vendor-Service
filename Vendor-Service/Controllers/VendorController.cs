@@ -16,7 +16,7 @@ namespace Vendor.Api.Controllers
         // GET: VendorController
        
         [HttpGet]
-        [Route("[controller]")]
+        [Route("vendors")]
         [ProducesResponseType(200,Type= typeof(List<Vendors>))]
         [ProducesResponseType(401)]
         [ProducesResponseType(404)]
@@ -28,8 +28,9 @@ namespace Vendor.Api.Controllers
             var vendorResult = await _vendorService.GetAllVendors();
             return Ok(vendorResult);
         }
-
+        
         [HttpGet]
+        [Route("vendor/{vendorId}")]
         public  async Task<ActionResult> GetVendor(int vendorId)
         {
             var vendorResult = await _vendorService.GetVendors(vendorId);
@@ -37,8 +38,9 @@ namespace Vendor.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetVendorByName(string Name) {
-            var vendorResult = await _vendorService.GetVendorByName(Name);
+        [Route("vendor/byName/{name}")]
+        public async Task<ActionResult> GetVendorByName(string name) {
+            var vendorResult = await _vendorService.GetVendorByName(name);
             return Ok(vendorResult);
         }
         
