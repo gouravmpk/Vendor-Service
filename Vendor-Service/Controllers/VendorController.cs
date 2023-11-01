@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Vendor.BusinessService.Interfaces;
 using Vendor.DataEnities.Interface;
 using Vendor.DataEntities.Models;
@@ -41,7 +42,12 @@ namespace Vendor.Api.Controllers
             var vendorResult = await _vendorService.GetVendorByName(Name);
             return Ok(vendorResult);
         }
+
+        //[HttpPost]
+        //public async IActionResult VendorRegistration([FromBody] ) {
         
+        //}
+
         
  
     }

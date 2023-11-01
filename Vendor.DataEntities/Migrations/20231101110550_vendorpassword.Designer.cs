@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vendor.DataEntities;
 
@@ -10,9 +11,11 @@ using Vendor.DataEntities;
 namespace Vendor.DataEntities.Migrations
 {
     [DbContext(typeof(VendorContext))]
-    partial class VendorContextModelSnapshot : ModelSnapshot
+    [Migration("20231101110550_vendorpassword")]
+    partial class vendorpassword
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,9 +180,6 @@ namespace Vendor.DataEntities.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ContactInfo")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Email")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Password")
